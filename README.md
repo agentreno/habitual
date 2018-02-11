@@ -14,6 +14,22 @@ with a real backend.
 2. **Habit** - a single habit card showing name, description, frequency and a
    progress bar
 
+## Redux State
+
+```
+{
+  habits: [
+    {
+      id: 'b6eb3e66-f3e4-4102-90d8-e7ae527d5d47',
+      name: 'Running',
+      description: 'Go for a run',
+      frequency: 2,
+      progress: 0
+    },
+  ]
+}
+```
+
 ## TODO
 
 1. Style it using CSS modules

@@ -6,7 +6,7 @@ const HabitList = ({ habits }) => (
   <div className="HabitList">
     {habits.map((habit, index) => (
       <Habit
-        key={index}
+        key={habit.id}
         {...habit}
       />
     ))}

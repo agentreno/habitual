@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import HabitList from './components/HabitList/HabitList';
+import { v4 } from 'node-uuid'
 
 const habits = [
   {
+    id: v4(),
     name: 'Running',
     description: 'Go for a run',
-    frequency: 'Twice a week',
-    progress: '0%'
+    frequency: 2,
+    progress: 0
   },
   {
+    id: v4(),
     name: 'Core work',
     description: 'Strengthen core with exercises',
-    frequency: 'Twice a week',
-    progress: '0%'
+    frequency: 2,
+    progress: 0
   },
 ]
 
