@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux'
 import { INCREASE_PROGRESS } from './actions'
 
 const initialState = {
