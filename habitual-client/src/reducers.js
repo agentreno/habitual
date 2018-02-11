@@ -13,8 +13,8 @@ function habits(state = initialState, action) {
       return Object.assign({}, state, {
         habits: state.habits.map((habit) =>
           {
-            habit.id === action.id ?
-              Object.assign({}, habit, { progress: habit.progress + 1 } :
+            return habit.id === action.id ?
+              Object.assign({}, habit, { progress: habit.progress + 1 }) :
               habit
           }
         )
