@@ -27,6 +27,7 @@ function habits(state = initialState, action) {
 }
 
 // Only one reducer for now, but there will be more
-const habitReducer = combineReducers({ habits })
+// const habitReducer = combineReducers({ habits })
+const habitReducer = habits
 
 export default habitReducer
