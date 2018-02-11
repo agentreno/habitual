@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
-import Habit from './components/Habit/Habit';
+import HabitList from './components/HabitList/HabitList';
+
+const habits = [
+  {
+    name: 'Running',
+    description: 'Go for a run',
+    frequency: 'Twice a week',
+    progress: '0%'
+  },
+  {
+    name: 'Core work',
+    description: 'Strengthen core with exercises',
+    frequency: 'Twice a week',
+    progress: '0%'
+  },
+]
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Habit
-          name="Running"
-          description="Go for a run"
-          frequency="Twice a week"
-          progress="0%"
-        />
+        <HabitList habits={habits} />
       </div>
     );
   }
