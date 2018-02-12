@@ -1,16 +1,13 @@
-import habitReducer from './reducers'
+import habitReducer, { initialState } from './reducers'
 import * as actions from './actions'
 
 describe('habits reducer', () => {
   it('should return the initial state', () => {
-    const expectedInitialState = {
-      habits: []
-    }
-    expect(habitReducer(undefined, {})).toEqual(expectedInitialState)
+    expect(habitReducer(undefined, {})).toEqual(initialState)
   })
 
   it('should handle INCREASE_PROGRESS', () => {
-    const initialState = {
+    const testInitialState = {
       habits: [
         {
           id: '1234',
@@ -35,7 +32,7 @@ describe('habits reducer', () => {
     }
 
     expect(
-      habitReducer(initialState, {
+      habitReducer(testInitialState, {
         type: actions.INCREASE_PROGRESS,
         id: '1234'
       })

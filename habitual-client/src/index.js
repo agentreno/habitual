@@ -6,8 +6,15 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { createStore } from 'redux'
 import habitReducer from './reducers'
+import { Provider } from 'react-redux'
 
 let store = createStore(habitReducer)
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+
+registerServiceWorker()

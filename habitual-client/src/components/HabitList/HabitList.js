@@ -13,4 +13,4 @@ const HabitList = ({ habits }) => (
   </div>
 )
 
-export default HabitList;
+export default HabitList
