@@ -1,7 +1,23 @@
 import { INCREASE_PROGRESS } from './actions'
+import { v4 } from 'node-uuid'
 
-const initialState = {
-  habits: []
+export const initialState = {
+  habits: [
+    {
+      id: v4(),
+      name: 'Running',
+      description: 'Go for a run',
+      frequency: 2,
+      progress: 0
+    },
+    {
+      id: v4(),
+      name: 'Core work',
+      description: 'Strengthen core with exercises',
+      frequency: 2,
+      progress: 0
+    },
+  ]
 }
 
 // A single root reducer for now
