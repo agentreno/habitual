@@ -1,4 +1,4 @@
-import { INCREASE_PROGRESS, FETCH_HABITS_SUCCESS } from './actions'
+import * as actions from './actions'
 import { v4 } from 'node-uuid'
 
 export const initialState = {
@@ -25,7 +25,7 @@ export const initialState = {
 function habits(state = initialState, action) {
   switch(action.type) {
 
-    case INCREASE_PROGRESS:
+    case actions.INCREASE_PROGRESS:
       return Object.assign({}, state, {
         habits: state.habits.map((habit) =>
           {
@@ -36,16 +36,20 @@ function habits(state = initialState, action) {
         )
       })
 
-    case FETCH_HABITS_SUCCESS:
+    case actions.FETCH_HABITS_SUCCESS:
       // Intentionally replace local state
       return {
         habits: action.habits,
         isFetching: false
       }
 
+    case actions.FETCH_HABITS_REQUEST:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+
     default:
       return state
-
   }
 }
 

@@ -93,4 +93,13 @@ describe('habits reducer', () => {
     ).toEqual(false)
   })
 
+  it('should update isFetching when habits are being fetched', () => {
+    expect(
+      habitReducer({ isFetching: false }, {
+        type: actions.FETCH_HABITS_REQUEST,
+        habits: []
+      }).isFetching
+    ).toEqual(true)
+  })
+
 })
