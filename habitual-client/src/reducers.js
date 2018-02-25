@@ -1,4 +1,4 @@
-import { INCREASE_PROGRESS } from './actions'
+import { INCREASE_PROGRESS, FETCH_HABITS_SUCCESS } from './actions'
 import { v4 } from 'node-uuid'
 
 export const initialState = {
@@ -17,7 +17,8 @@ export const initialState = {
       frequency: 2,
       progress: 0
     },
-  ]
+  ],
+  isFetching: false
 }
 
 // A single root reducer for now
@@ -34,6 +35,13 @@ function habits(state = initialState, action) {
           }
         )
       })
+
+    case FETCH_HABITS_SUCCESS:
+      // Intentionally replace local state
+      return {
+        habits: action.habits,
+        isFetching: false
+      }
 
     default:
       return state
