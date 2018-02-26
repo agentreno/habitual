@@ -1,22 +1,7 @@
 import * as actions from './actions'
 
 export const initialState = {
-  habits: [
-    {
-      id: v4(),
-      name: 'Running',
-      description: 'Go for a run',
-      frequency: 2,
-      progress: 0
-    },
-    {
-      id: v4(),
-      name: 'Core work',
-      description: 'Strengthen core with exercises',
-      frequency: 2,
-      progress: 0
-    },
-  ],
+  habits: [],
   isFetching: false
 }
 

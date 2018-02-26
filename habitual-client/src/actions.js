@@ -5,7 +5,12 @@ export const INCREASE_PROGRESS = 'INCREASE_PROGRESS'
 
 // Action creators
 export function fetchHabits() {
-  return { type: FETCH_HABITS_REQUEST }
+  return dispatch => {
+    dispatch({ type: FETCH_HABITS_REQUEST })
+    return fetch('http://www.mocky.io/v2/5a92ec1b3100005200ab09d0')
+      .then(response => response.json())
+      .then(json => dispatch(receiveHabits(json)))
+  }
 }
 
 export function receiveHabits(data) {

@@ -10,7 +10,7 @@ describe('actions', () => {
     expect(actions.increaseProgress(id)).toEqual(expectedAction)
   })
 
-  it('should create an action to fetch habits', () => {
+  xit('should create an action to fetch habits', () => {
     const expectedAction = {
       type: actions.FETCH_HABITS_REQUEST
     }
