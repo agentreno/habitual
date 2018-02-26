@@ -1,5 +1,4 @@
 import * as actions from './actions'
-import { v4 } from 'node-uuid'
 
 export const initialState = {
   habits: [
