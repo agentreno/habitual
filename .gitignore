@@ -65,3 +65,7 @@ typings/
 
 # Python env
 env/
+__pycache__/
+
+# Database
+db.sqlite3
