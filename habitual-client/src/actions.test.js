@@ -1,3 +1,4 @@
+import * as constants from './constants'
 import * as actions from './actions'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -47,7 +48,7 @@ describe('async actions', () => {
   })
 
   it('creates FETCH_HABITS_SUCCESS when fetching habits is done', () => {
-    fetchMock.getOnce('http://www.mocky.io/v2/5a92ec1b3100005200ab09d0', {
+    fetchMock.getOnce(constants.API_URL, {
       body: JSON.parse(JSON.stringify(exampleResponse)),
       headers: {'content-type': 'application/json'}
     })

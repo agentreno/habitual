@@ -1,18 +1,17 @@
-// Action constants
-export const FETCH_HABITS_REQUEST = 'FETCH_HABITS_REQUEST'
-export const FETCH_HABITS_SUCCESS = 'FETCH_HABITS_SUCCESS'
-export const INCREASE_PROGRESS = 'INCREASE_PROGRESS'
+import * as constants from './constants'
 
 // Action creators
+export const FETCH_HABITS_REQUEST = 'FETCH_HABITS_REQUEST'
 export function fetchHabits() {
   return dispatch => {
     dispatch({ type: FETCH_HABITS_REQUEST })
-    return fetch('http://www.mocky.io/v2/5a92ec1b3100005200ab09d0')
+    return fetch(constants.API_URL)
       .then(response => response.json())
       .then(json => dispatch(receiveHabits(json)))
   }
 }
 
+export const FETCH_HABITS_SUCCESS = 'FETCH_HABITS_SUCCESS'
 export function receiveHabits(data) {
   return {
     type: FETCH_HABITS_SUCCESS,
@@ -20,6 +19,7 @@ export function receiveHabits(data) {
   }
 }
 
+export const INCREASE_PROGRESS = 'INCREASE_PROGRESS'
 export function increaseProgress(id) {
   return { type: INCREASE_PROGRESS, id }
 }
