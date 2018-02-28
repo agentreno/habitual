@@ -4,17 +4,15 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import fetchMock from 'fetch-mock'
 
-const exampleResponse = {
-  habits: [
-    {
-      "id": "1234",
-      "name": "test",
-      "description": "test",
-      "frequency": 1,
-      "progress": 0
-    }
-  ]
-}
+const exampleResponse = [
+  {
+    "id": "1234",
+    "name": "test",
+    "description": "test",
+    "frequency": 1,
+    "progress": 0
+  }
+]
 
 
 describe('actions', () => {
@@ -31,7 +29,7 @@ describe('actions', () => {
     const data = JSON.parse(JSON.stringify(exampleResponse))
     const expectedAction = {
       type: actions.FETCH_HABITS_SUCCESS,
-      habits: JSON.parse(JSON.stringify(exampleResponse)).habits
+      habits: JSON.parse(JSON.stringify(exampleResponse))
     }
 
     expect(actions.receiveHabits(data)).toEqual(expectedAction)
@@ -55,7 +53,7 @@ describe('async actions', () => {
 
     const expectedActions = [
       { type: actions.FETCH_HABITS_REQUEST },
-      { type: actions.FETCH_HABITS_SUCCESS, habits: JSON.parse(JSON.stringify(exampleResponse)).habits }
+      { type: actions.FETCH_HABITS_SUCCESS, habits: JSON.parse(JSON.stringify(exampleResponse)) }
     ]
     const store = mockStore({ habits: [] })
 

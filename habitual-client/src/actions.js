@@ -15,7 +15,7 @@ export const FETCH_HABITS_SUCCESS = 'FETCH_HABITS_SUCCESS'
 export function receiveHabits(data) {
   return {
     type: FETCH_HABITS_SUCCESS,
-    habits: data.habits
+    habits: data
   }
 }
 
