@@ -1,6 +1,17 @@
-.Habit {
-  border: 2px solid black;
-  padding: 1em;
-  margin: 1em;
-  max-width: 300px;
+.habitcard {
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+}
+
+.habitcard h2, .habitcard p {
+  text-align: center;
+}
+
+.habitcard .progressBar {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background-image: radial-gradient(grey 0%, black 98%);
 }
