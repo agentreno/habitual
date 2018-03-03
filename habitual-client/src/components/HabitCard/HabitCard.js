@@ -21,7 +21,7 @@ const progressBarOptions = {
 const Habit = ({ name, description, frequency, progress }) => (
   <div className="habitcard">
     <Circle
-      progress='1'
+      progress={progress / frequency}
       text={'test'}
       options={progressBarOptions}
       className={'progressBar'}
