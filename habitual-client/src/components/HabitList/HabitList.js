@@ -1,11 +1,11 @@
 import React from 'react';
-import Habit from '../Habit/Habit';
+import HabitCard from '../HabitCard/HabitCard';
 import './HabitList.css'
 
 const HabitList = ({ habits }) => (
   <div className="HabitList">
     {habits.map((habit, index) => (
-      <Habit
+      <HabitCard
         key={habit.id}
         {...habit}
       />
