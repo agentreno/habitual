@@ -1,10 +1,17 @@
 .habitcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   border: 2px solid lightgrey;
   border-radius: 5px;
 }
 
 .habitcard h2, .habitcard p {
   text-align: center;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 .habitcard .progressBar {
@@ -14,4 +21,21 @@
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   background-image: radial-gradient(grey 0%, black 98%);
+}
+
+.habitcard button {
+  background-color: #2185d0;
+  background-image: none;
+  color: #fff;
+  text-shadow: none;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+
+  min-height: 2.5em;
+  min-width: 4em;
+  font-size: 1em;
+  border-radius: 4px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }

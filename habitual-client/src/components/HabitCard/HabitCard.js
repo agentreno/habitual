@@ -18,7 +18,7 @@ const progressBarOptions = {
   }
 }
 
-const Habit = ({ name, description, frequency, progress }) => (
+const HabitCard = ({ name, description, frequency, progress, onClick }) => (
   <div className="habitcard">
     <Circle
       progress={progress / frequency}
@@ -29,7 +29,8 @@ const Habit = ({ name, description, frequency, progress }) => (
     />
     <h2>{name}</h2>
     <p>{description}</p>
+    <button onClick={onClick}>Done</button>
   </div>
 )
 
-export default Habit;
+export default HabitCard;
