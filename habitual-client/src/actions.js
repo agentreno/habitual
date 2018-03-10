@@ -1,12 +1,11 @@
-import * as constants from './constants'
+import * as api from './api'
 
 // Action creators
 export const FETCH_HABITS_REQUEST = 'FETCH_HABITS_REQUEST'
 export function fetchHabits() {
   return dispatch => {
     dispatch({ type: FETCH_HABITS_REQUEST })
-    return fetch(constants.API_URL)
-      .then(response => response.json())
+    return api.getHabits()
       .then(json => dispatch(receiveHabits(json)))
   }
 }
