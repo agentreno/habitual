@@ -8,7 +8,7 @@ const HabitList = ({ habits, onProgress }) => (
       <HabitCard
         key={habit.id}
         {...habit}
-        onClick={() => onProgress(habit.id)}
+        onClick={() => onProgress(habit)}
       />
     ))}
   </div>

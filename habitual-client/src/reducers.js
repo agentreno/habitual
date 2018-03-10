@@ -9,15 +9,20 @@ export const initialState = {
 function habits(state = initialState, action) {
   switch(action.type) {
 
-    case actions.INCREASE_PROGRESS:
+    case actions.UPDATE_HABIT_REQUEST:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+
+    case actions.UPDATE_HABIT_SUCCESS:
       return Object.assign({}, state, {
         habits: state.habits.map((habit) =>
           {
-            return habit.id === action.id ?
-              Object.assign({}, habit, { progress: habit.progress + 1 }) :
-              habit
+            return habit.id === action.habit.id ?
+              action.habit : habit
           }
-        )
+        ),
+        isFetching: false
       })
 
     case actions.FETCH_HABITS_SUCCESS:

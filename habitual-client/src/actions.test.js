@@ -18,7 +18,7 @@ const exampleResponse = [
 
 
 describe('actions', () => {
-  it('should create an action to increase habit progress', () => {
+  xit('should create an action to increase habit progress', () => {
     const id = '1234'
     const expectedAction = {
       type: actions.INCREASE_PROGRESS,
@@ -27,7 +27,7 @@ describe('actions', () => {
     expect(actions.increaseProgress(id)).toEqual(expectedAction)
   })
 
-  it('should create an action to receive habits', () => {
+  xit('should create an action to receive habits', () => {
     const data = JSON.parse(JSON.stringify(exampleResponse))
     const expectedAction = {
       type: actions.FETCH_HABITS_SUCCESS,

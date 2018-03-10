@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { increaseProgress } from '../../actions'
+import { updateHabit } from '../../actions'
 import HabitList from '../../components/HabitList/HabitList'
 
 const mapStateToProps = state => ({
@@ -7,8 +7,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onProgress: id => {
-    dispatch(increaseProgress(id))
+  onProgress: habit => {
+    dispatch(updateHabit(habit))
   }
 })
 

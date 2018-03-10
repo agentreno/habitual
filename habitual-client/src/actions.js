@@ -18,7 +18,19 @@ export function receiveHabits(data) {
   }
 }
 
-export const INCREASE_PROGRESS = 'INCREASE_PROGRESS'
-export function increaseProgress(id) {
-  return { type: INCREASE_PROGRESS, id }
+export const UPDATE_HABIT_REQUEST = 'UPDATE_HABIT_REQUEST'
+export function updateHabit(habit) {
+  return dispatch => {
+    dispatch({ type: UPDATE_HABIT_REQUEST, habit })
+    return api.updateHabit(habit)
+      .then(habit => dispatch(updateHabitSuccess(habit)))
+  }
+}
+
+export const UPDATE_HABIT_SUCCESS = 'UPDATE_HABIT_SUCCESS'
+export function updateHabitSuccess(habit) {
+  return {
+    type: UPDATE_HABIT_SUCCESS,
+    habit
+  }
 }
