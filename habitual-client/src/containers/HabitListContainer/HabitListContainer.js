@@ -8,7 +8,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onProgress: habit => {
-    dispatch(updateHabit(habit))
+    dispatch(updateHabit(
+      Object.assign({}, habit, { progress: habit.progress + 1})
+    ))
   }
 })
 
