@@ -11,10 +11,10 @@ class HabitSerializer(serializers.ModelSerializer):
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity
-        fields = ('habit', 'date')
+        fields = ('id', 'habit', 'date')
 
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ('name', 'habit')
+        fields = ('id', 'name', 'habit')
