@@ -1,6 +1,6 @@
 from habitapi.models import Habit, Activity, Tag
 from habitapi.serializers import HabitSerializer, ActivitySerializer, TagSerializer
-from habitapi.generics import NestedCollectionMixin
+from habitapi.generics import NestedCollectionMixin, NestedResourceListMixin, NestedResourceDetailMixin
 from rest_framework import generics
 
 
@@ -27,13 +27,13 @@ class HabitActivityDetail(NestedCollectionMixin, generics.RetrieveUpdateDestroyA
     serializer_class = ActivitySerializer
 
 
-class HabitTagList(NestedCollectionMixin, generics.ListCreateAPIView):
+class HabitTagList(NestedResourceListMixin, generics.ListCreateAPIView):
     queryset = Tag.objects.all()
     collection_field = 'habit'
     serializer_class = TagSerializer
 
 
-class HabitTagDetail(NestedCollectionMixin, generics.RetrieveUpdateDestroyAPIView):
+class HabitTagDetail(NestedResourceDetailMixin, generics.RetrieveUpdateDestroyAPIView):
     queryset = Tag.objects.all()
     collection_field = 'habit'
     lookup_url_kwarg = 'pk2'
