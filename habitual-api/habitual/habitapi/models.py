@@ -26,3 +26,11 @@ class Activity(models.Model):
 
     def __str__(self):
         return f'{self.habit.name} at {self.date}'
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+    habit = models.ManyToManyField(
+        Habit,
+        blank=True
+    )
