@@ -1,5 +1,5 @@
-from habitapi.models import Habit, Activity
-from habitapi.serializers import HabitSerializer, ActivitySerializer
+from habitapi.models import Habit, Activity, Tag
+from habitapi.serializers import HabitSerializer, ActivitySerializer, TagSerializer
 from habitapi.generics import NestedCollectionMixin
 from rest_framework import generics
 
@@ -35,3 +35,13 @@ class ActivityList(generics.ListCreateAPIView):
 class ActivityDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
+
+
+class TagList(generics.ListCreateAPIView):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+
+
+class TagDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Tag.objects.all()
+    serializer_classs = TagSerializer
