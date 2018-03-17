@@ -34,3 +34,6 @@ class Tag(models.Model):
         Habit,
         blank=True
     )
+
+    def __str__(self):
+        return self.name
