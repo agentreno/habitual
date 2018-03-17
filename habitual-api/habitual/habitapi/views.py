@@ -27,6 +27,19 @@ class HabitActivityDetail(NestedCollectionMixin, generics.RetrieveUpdateDestroyA
     serializer_class = ActivitySerializer
 
 
+class HabitTagList(NestedCollectionMixin, generics.ListCreateAPIView):
+    queryset = Tag.objects.all()
+    collection_field = 'habit'
+    serializer_class = TagSerializer
+
+
+class HabitTagDetail(NestedCollectionMixin, generics.RetrieveUpdateDestroyAPIView):
+    queryset = Tag.objects.all()
+    collection_field = 'habit'
+    lookup_url_kwarg = 'pk2'
+    serializer_class = TagSerializer
+
+
 class ActivityList(generics.ListCreateAPIView):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
