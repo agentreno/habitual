@@ -52,6 +52,9 @@ class NestedResourceListMixin(NestedCollectionMixin):
     - POST /parent/:id/child/ creates a child entity with association to parent built in
     """
     def perform_create(self, serializer):
-        import pdb
-        pdb.set_trace()
+        new_child = serializer.save()
+        relation_manager = getattr(new_child, self.collection_field)
+        parent_queryset = relation_manager.model
+        parent_instance = parent_queryset.objects.get(pk=self.kwargs['pk'])
+        relation_manager.add(parent_instance)
         return
