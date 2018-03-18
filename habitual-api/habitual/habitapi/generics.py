@@ -1,3 +1,8 @@
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from rest_framework import status
+
+
 class NestedCollectionMixin:
     def get_queryset(self):
         collection_id = self.kwargs.get('pk', self.kwargs.get('pk1', None))
@@ -16,7 +21,7 @@ class NestedResourceDetailMixin(NestedCollectionMixin):
       existing child, it does not create a new instance
     """
     def perform_destroy(self, instance):
-        # TODO: Instead of deleting the instance, take it out of the parent
+        # Instead of deleting the instance, take it out of the parent
         # resource's manytomany relationship
         relation_manager = getattr(instance, self.collection_field)
         parent_queryset = relation_manager.model
@@ -25,9 +30,20 @@ class NestedResourceDetailMixin(NestedCollectionMixin):
         return
 
     def post(self, request, *args, **kwargs):
-        import pdb
-        pdb.set_trace()
-        return
+        # Find the existing child instance
+        child_instance = get_object_or_404(self.queryset, pk=self.kwargs['pk2'])
+
+        # Find the existing parent instance
+        relation_manager = getattr(child_instance, self.collection_field)
+        parent_queryset = relation_manager.model
+        parent_instance = parent_queryset.objects.get(pk=self.kwargs['pk1'])
+
+        # Add an association from the child to the parent
+        relation_manager.add(parent_instance)
+
+        # Return a representation of the newly added Tag
+        serializer = self.get_serializer(child_instance)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class NestedResourceListMixin(NestedCollectionMixin):
