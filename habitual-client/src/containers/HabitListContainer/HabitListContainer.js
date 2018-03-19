@@ -14,7 +14,6 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-// no mapDispatchToProps as no actions available from UI yet
 const HabitListContainer = connect(
   mapStateToProps,
   mapDispatchToProps
