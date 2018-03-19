@@ -7,6 +7,7 @@
     "d3": "^4.13.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-modal": "^3.3.2",
     "react-progressbar.js": "git://github.com/squarecat/react-progressbar.js.git",
     "react-redux": "^5.0.6",
     "react-scripts": "1.1.1",
