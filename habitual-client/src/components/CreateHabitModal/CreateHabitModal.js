@@ -20,7 +20,11 @@ class CreateHabitModal extends Component {
   }
 
   handleSubmit(event) {
-    console.log(event)
+    console.log(this.name.value)
+    console.log(this.description.value)
+    console.log(this.frequency.value)
+    event.preventDefault()
+    this.props.close()
   }
 
   render() {
@@ -33,17 +37,17 @@ class CreateHabitModal extends Component {
 
           <label>
             Name:
-            <input type="text" name="name" />
+            <input type="text" name="name" ref={name => this.name = name} />
           </label>
 
           <label>
             Description:
-            <input type="text" name="description" />
+            <input type="text" name="description" ref={desc => this.description = desc} />
           </label>
 
           <label>
             Frequency:
-            <input type="text" name="description" />
+            <input type="text" name="frequency" ref={freq => this.frequency = freq} />
           </label>
 
           <input type="submit" value="Submit" />
