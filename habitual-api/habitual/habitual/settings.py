@@ -127,3 +127,8 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = (
     'localhost:3000'
 )
+
+# DRF
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('habitapi.filters.IsOwnerFilterBackend',)
+}
