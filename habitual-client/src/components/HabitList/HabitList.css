@@ -1,3 +1,6 @@
 .HabitList {
+  width: 100vw;
+  max-width: 900px;
   display: flex;
+  justify-content: space-between;
 }

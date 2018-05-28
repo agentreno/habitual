@@ -4,4 +4,24 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  background-color: #bdfff2;
+  background-image: url('./assets/asfalt-dark.png');
+}
+
+button, input[type=submit] {
+  background-color: #2185d0;
+  background-image: none;
+  color: #fff;
+  text-shadow: none;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+
+  min-height: 2.5em;
+  min-width: 4em;
+  font-size: 1em;
+  border-radius: 4px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }

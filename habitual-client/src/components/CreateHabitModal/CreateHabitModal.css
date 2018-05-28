@@ -4,18 +4,11 @@
 }
 
 .ReactModal__Content form label {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   display: flex;
   justify-content: space-between;
 }
 
-.ReactModal__Content form input {
+.ReactModal__Content form label input {
   margin-left: 20px;
-}
-
-.ReactModal__Content input[type=submit] {
-  border: none;
-  padding: 5px 10px;
-  margin: 0 auto;
-  width: 100px;
 }
