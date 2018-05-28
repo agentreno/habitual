@@ -20,10 +20,12 @@ class CreateHabitModal extends Component {
   }
 
   handleSubmit(event) {
-    console.log(this.name.value)
-    console.log(this.description.value)
-    console.log(this.frequency.value)
     event.preventDefault()
+    this.props.submit({
+      name: this.name.value,
+      description: this.description.value,
+      frequency: this.frequency.value,
+    })
     this.props.close()
   }
 

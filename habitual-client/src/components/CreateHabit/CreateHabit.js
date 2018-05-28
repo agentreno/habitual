@@ -21,6 +21,7 @@ class CreateHabit extends Component {
         <CreateHabitModal
           show={this.state.isOpen}
           close={this.toggleModal}
+          submit={this.props.createHabit}
         />
       </div>
     )

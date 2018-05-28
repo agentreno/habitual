@@ -15,3 +15,8 @@ export function createActivityForHabit(activity, habit) {
   return axios.post(`${constants.API_URL}/habits/${habit.id}/activity/`, activity)
     .then(response => response.data)
 }
+
+export function createHabit(habit) {
+  return axios.post(`${constants.API_URL}/habits/`, habit)
+    .then(response => response.data)
+}

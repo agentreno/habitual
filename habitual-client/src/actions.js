@@ -55,3 +55,21 @@ export function createActivitySuccess(activity) {
     dispatch(fetchHabits())
   }
 }
+
+export const CREATE_HABIT_REQUEST = 'CREATE_HABIT_REQUEST'
+export function createHabit(habit) {
+  return dispatch => {
+    dispatch({ type: CREATE_HABIT_REQUEST, habit })
+    return api.createHabit(habit)
+      .then(habit => dispatch(createHabitSuccess(habit)))
+  }
+}
+
+export const CREATE_HABIT_SUCCESS = 'CREATE_HABIT_SUCCESS'
+export function createHabitSuccess(habit) {
+  return dispatch => {
+    dispatch({ type: CREATE_HABIT_SUCCESS, habit })
+    dispatch(fetchHabits())
+  }
+}
+
