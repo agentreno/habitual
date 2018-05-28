@@ -34,3 +34,24 @@ export function updateHabitSuccess(habit) {
     habit
   }
 }
+
+export const CREATE_ACTIVITY_REQUEST = 'CREATE_ACTIVITY_REQUEST'
+export function createActivity(habit) {
+  return dispatch => {
+    dispatch({ type: CREATE_ACTIVITY_REQUEST, habit })
+    let activity = {
+      habit: habit.id,
+      date: new Date().toISOString()
+    }
+    return api.createActivityForHabit(activity, habit)
+      .then(activity => dispatch(createActivitySuccess(activity)))
+  }
+}
+
+export const CREATE_ACTIVITY_SUCCESS = 'CREATE_ACTIVITY_SUCCESS'
+export function createActivitySuccess(activity) {
+  return dispatch => {
+    dispatch({ type: CREATE_ACTIVITY_SUCCESS, activity })
+    dispatch(fetchHabits())
+  }
+}

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { updateHabit } from '../../actions'
+import { createActivity } from '../../actions'
 import HabitList from '../../components/HabitList/HabitList'
 
 const mapStateToProps = state => ({
@@ -8,9 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onProgress: habit => {
-    dispatch(updateHabit(
-      Object.assign({}, habit, { progress: habit.progress + 1})
-    ))
+    dispatch(createActivity(habit))
   }
 })
 
