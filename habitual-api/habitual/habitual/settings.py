@@ -103,6 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Habitual Users have UUID4 for primary keys
+AUTH_USER_MODEL = 'habitapi.HabitualUser'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

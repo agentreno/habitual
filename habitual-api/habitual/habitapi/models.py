@@ -1,14 +1,20 @@
+import uuid
+from datetime import timedelta
+
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
-from datetime import timedelta
+from django.contrib.auth.models import AbstractUser
+
+
+class HabitualUser(AbstractUser):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
 
 class Habit(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
     frequency = models.IntegerField(default=1)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    owner = models.ForeignKey(HabitualUser, on_delete=models.CASCADE)
 
     @property
     def progress(self):
@@ -25,7 +31,7 @@ class Habit(models.Model):
 class Activity(models.Model):
     habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
     date = models.DateTimeField('date of activity')
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    owner = models.ForeignKey(HabitualUser, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.habit.name} at {self.date}'
