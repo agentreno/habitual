@@ -133,5 +133,6 @@ CORS_ORIGIN_WHITELIST = (
 
 # DRF
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ('habitapi.filters.IsOwnerFilterBackend',)
+    'DEFAULT_FILTER_BACKENDS': ('habitapi.filters.IsOwnerFilterBackend',),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.BasicAuthentication',),
 }

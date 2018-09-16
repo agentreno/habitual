@@ -30,6 +30,13 @@ with a real backend.
 }
 ```
 
+## Authentication
+
+Still work in progress, create a new user manually with django shell, set
+username and password, and authenticate requests with basic auth. There is a
+custom user in `habitapi/models.py` which gets a UUID as an ID, and project
+settings enables basic auth processing by DRF.
+
 ## TODO
 
 1. Style it using CSS modules
