@@ -1,6 +1,6 @@
 import React from 'react'
 import { scaleLinear } from 'd3-scale'
-import { Circle } from 'react-progressbar.js'
+import { Circle } from 'react-progress-bar.js'
 import './HabitCard.css'
 
 const colourScale = scaleLinear()
