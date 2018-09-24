@@ -26,10 +26,14 @@ let store = createStore(
 )
 epicMiddleware.run(rootEpic)
 
+const mapDispatchToProps = dispatch => ({
+  http: httpAction(dispatch),
+})
+const Root = connect(null, mapDispatchToProps)(App)
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Root />
   </Provider>,
   document.getElementById('root')
 )
