@@ -1,28 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
+import { createEpicMiddleware } from 'redux-observable';
+import { createStore } from 'redux'
+import { connect, Provider } from 'react-redux'
+import { httpAction } from 'redux-observable-sans'
+
+import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import App from './App';
-import { applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import { fetchHabits } from './actions';
-import registerServiceWorker from './registerServiceWorker';
-
-import { createStore } from 'redux'
 import habitReducer from './reducers'
-import { Provider } from 'react-redux'
+import rootEpic from './epics';
 
 
 const loggerMiddleware = createLogger()
+const epicMiddleware = createEpicMiddleware()
 
 let store = createStore(
   habitReducer,
   applyMiddleware(
     loggerMiddleware,
-    thunkMiddleware
+    epicMiddleware
   )
 )
-store.dispatch(fetchHabits())
+epicMiddleware.run(rootEpic)
+
 
 ReactDOM.render(
   <Provider store={store}>
