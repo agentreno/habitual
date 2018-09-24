@@ -1,3 +1,4 @@
+/*
 import * as actions from './actions'
 
 export const initialState = {
@@ -47,3 +48,25 @@ function habits(state = initialState, action) {
 const habitReducer = habits
 
 export default habitReducer
+*/
+
+// For now ignore errors
+const reducers = {
+  'GET_HABITS_REQUEST': (state) => ({ ...state, isLoading: true }),
+  'GET_HABITS_SUCCESS': (state, payload) => ({ ...state, habits: payload.habits, isLoading: false }),
+  'GET_HABITS_FAILURE': (state, payload) => ({ ...state, isLoading: false }),
+  'UPDATE_HABIT_REQUEST': (state) => ({ ...state, isLoading: true }),
+  'UPDATE_HABIT_SUCCESS': (state, payload) => ({
+    ...state,
+    habits: state.habits.map((habit) => {
+      return habit.id === payload.habit.id ? payload.habit : habit
+    }),
+    isLoading: false
+  }),
+  'UPDATE_HABIT_FAILURE': (state, payload) => ({ ...state, isLoading: false })
+}
+
+export default (state = { habits: [], isLoading: false }, action) => {
+  const reducer = reducers[action.type]
+  return typeof reducer === 'function' ? reducer(state, action.payload) : state
+}
