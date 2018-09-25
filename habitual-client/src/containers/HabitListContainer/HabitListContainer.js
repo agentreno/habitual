@@ -12,10 +12,16 @@ const mapDispatchToProps = dispatch => ({
     dispatch(createActivity(habit))
   }
 })
-*/
+
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onProgress: ownProps.http('UPDATE_HABIT', 'habits')
 })
+*/
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  console.warn(`ownProps =`, ownProps);
+  return { onProgress: ownProps.props.http('UPDATE_HABIT', 'habits') }
+}
 
 const HabitListContainer = connect(
   mapStateToProps,

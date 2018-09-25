@@ -4,10 +4,10 @@ import CreateHabitContainer from './containers/CreateHabitContainer/CreateHabitC
 
 import './App.css'
 
-const App = () => (
+const App = (props) => (
   <div className="App">
-    <HabitListContainer />
-    <CreateHabitContainer />
+    <HabitListContainer {...{props}} />
+    <CreateHabitContainer {...{props}} />
   </div>
 )
 
